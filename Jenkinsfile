@@ -8,7 +8,7 @@ pipeline {
         }
     }
     post {
-        always {
+        success {
             junit '**/*.xml'
         }
     }
