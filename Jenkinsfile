@@ -1,16 +1,17 @@
 pipeline {
-    agent { docker "java" }
-    stages {
-        stage("build") {
-            steps {
-                echo 'Testing'
-            }
+   agent any
+   stages {
+     stage('Build and Test') {
+        steps {
+            sh 'build here...'
+            sh 'run tests here if you like ...'
         }
-    }
-    post {
-        success {
-            junit '**/*.xml'
-        }
-    }
-    
+     }
+   }
+
+   post {
+      always {
+        junit '**/reports/junit/*.xml'
+      }
+   } 
 }
