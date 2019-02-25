@@ -9,8 +9,7 @@ pipeline {
     }
     post {
         always {
-            archive "target/**/*"
-            junit 'target/**/*.xml'
+            junit '**/*.xml'
         }
     }
 }
