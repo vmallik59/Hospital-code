@@ -10,13 +10,19 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                sh './jenkins/scripts/test.sh'
+                
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
             }
+        }
+    }
+    
+    post {
+        always {
+            junit 'build/reports/**/*.xml'
         }
     }
 }
