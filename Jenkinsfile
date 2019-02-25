@@ -7,9 +7,5 @@ pipeline {
             }
         }
     }
-    post {
-        success {
-            junit '**/*.xml'
-        }
-    }
+    
 }
