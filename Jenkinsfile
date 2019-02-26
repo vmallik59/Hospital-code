@@ -1,17 +1,21 @@
 pipeline {
-   agent any
-   stages {
-     stage('Build and Test') {
-        steps {
-            sh 'build here...'
-            sh 'run tests here if you like ...'
-        }
-     }
-   }
+    agent any
 
-   post {
-      always {
-        junit 'build/reports/**/*.xml'
-      }
-   } 
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
 }
