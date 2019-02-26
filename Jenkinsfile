@@ -11,7 +11,7 @@ pipeline {
     }
 	post {
                 success {
-                    junit keepLongStdio: true, testResults: '**/target/*-reports/*.xml'
+                    junit keepLongStdio: true, testResults: '**/*.xml'
                 }
             }
 	
