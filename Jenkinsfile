@@ -1,18 +1,19 @@
 pipeline {
-    agent any
-
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
-        }
-        
-    }
-	post {
-                success {
-                    junit keepLongStdio: true, testResults: '**/*.xml'
-                }
-            }
-	
+agent any
+ 
+tools{
+	maven 'maven 3'
+	jdk 'java 8'
+}
+ 
+stages {
+	stage ("initialize") {
+		steps {
+			sh '''
+			echo "PATH = ${PATH}"
+			echo "M2_HOME = ${M2_HOME}"
+			'''
+		}
+	}
+}
 }
