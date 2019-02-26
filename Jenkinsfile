@@ -1,4 +1,6 @@
-node('jenkins-agent-maven-39') {
+pipeline {
+    agent any
+stages {
     stage('Start') {
         switch (env.BRANCH_NAME) {
             case 'master':
@@ -10,6 +12,7 @@ node('jenkins-agent-maven-39') {
                 break
         }
     }
+	}
 }
 
 def devFlow() {
