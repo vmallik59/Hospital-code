@@ -1,18 +1,8 @@
-pipeline {
-    agent any
-
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
+node {
+        stage('Building WAR...') {
+            withMaven(
+                    maven: 'Maven 3.5.0') {
+                // Run the maven build
+                sh 'mvn clean install' //Same as running on local
         }
-        
-    }
-	post {
-                success {
-                    junit keepLongStdio: true, testResults: '**/*-reports/*.xml'
-                }
-            }
-	
 }
