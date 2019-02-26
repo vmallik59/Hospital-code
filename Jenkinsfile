@@ -1,15 +1,18 @@
 pipeline {
-agent any
- 
- 
-stages {
-	stage ("initialize") {
-		steps {
-			sh '''
-			echo "PATH = ${PATH}"
-			echo "M2_HOME = ${M2_HOME}"
-			'''
-		}
-	}
-}
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        
+    }
+	post {
+                success {
+                    junit keepLongStdio: true, testResults: '**/*-reports/*.xml'
+                }
+            }
+	
 }
