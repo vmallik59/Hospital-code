@@ -1,6 +1,6 @@
 pipeline {
     agent any
-stages {
+
     stage('Start') {
         switch (env.BRANCH_NAME) {
             case 'master':
@@ -12,7 +12,7 @@ stages {
                 break
         }
     }
-	}
+	
 }
 
 def devFlow() {
