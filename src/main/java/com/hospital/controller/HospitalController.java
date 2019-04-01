@@ -42,4 +42,9 @@ public class HospitalController {
 		return patientDetails;
 	}
 	
+	@GetMapping("/test")
+	public String test(){
+		return "This is test";
+	}
+	
 }
