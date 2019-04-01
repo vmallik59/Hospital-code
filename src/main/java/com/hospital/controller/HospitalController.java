@@ -13,7 +13,7 @@ import com.hospital.dto.PatientDetailsDTO;
 import com.hospital.service.HospitalService;
 
 @RestController
-@RequestMapping("/hospital")
+//@RequestMapping("/hospital")
 public class HospitalController {
 
 	@Autowired
@@ -42,9 +42,9 @@ public class HospitalController {
 		return patientDetails;
 	}
 	
-	@GetMapping("/test")
-	public String test(){
-		return "This is test";
-	}
+	@GetMapping("hello")
+   	public String sayHello(){
+		return ("Hello, SpringBoot on Wildfly");
+    	}
 	
 }
